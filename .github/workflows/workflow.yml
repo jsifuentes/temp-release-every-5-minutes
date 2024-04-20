@@ -13,11 +13,12 @@ jobs:
         uses: actions/checkout@v3
       - name: Commit and push
         run: |-
-          echo "$(date -u)" > file.txt
+          CUR_DATE="$(date -u)"
+          echo "$CUR_DATE" > file.txt
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
           git add -A
-          git commit -m "Latest data: $(date -u)"
+          git commit -m "Latest data: $CUR_DATE"
 
           git fetch --tags
           # Get the latest tag
@@ -35,5 +36,5 @@ jobs:
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "file.txt"
-          bodyFile: "README.md"
+          bodyFile: "file.txt"
           tag: ${{env.NEW_TAG}}

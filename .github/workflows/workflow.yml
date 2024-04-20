@@ -1,0 +1,17 @@
+name: Cut a release
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out this repo
+        uses: actions/checkout@v3
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "file.txt"
+          bodyFile: "README.md"

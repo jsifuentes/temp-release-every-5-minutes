@@ -36,4 +36,4 @@ jobs:
         with:
           artifacts: "file.txt"
           bodyFile: "README.md"
-          ref: ${{env.NEW_TAG}}
+          tag: ${{env.NEW_TAG}}

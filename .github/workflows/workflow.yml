@@ -2,8 +2,6 @@ name: Cut a release
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "* * * * *"
 
 jobs:
   scheduled:
